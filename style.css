@@ -8,9 +8,21 @@ main {
 
 .map {
     display: block;
-    width: 90%;
+    width: 100%;
+    margin: 0 auto;
+    /* background: yellow; */
+}
+
+iframe {
+    width: 75%;
+    height: 50vh;
 }
 
 ul {
     list-style: none;
+}
+
+li {
+    display: inline-block;
+    padding: 10px 20px;
 }
