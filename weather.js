@@ -8,8 +8,10 @@ navigator.geolocation.getCurrentPosition(success, failure, options);
 function success(position) {
  
     
-    document.getElementById("map").innerHTML = `<div class="mapouter"><div class="gmap_canvas"><iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=${position.coords.latitude},${position.coords.longitude}&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://123movies-to.org"></a><br><style>.mapouter{position:relative;text-align:right;height:500px;width:600px;}</style><a href="https://www.embedgooglemap.net"></a><style>.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:600px;}</style></div></div>`;
-  
+    document.getElementById("map").innerHTML = 
+    `<iframe src="https://maps.google.com/maps?q=${
+        position.coords.latitude},${position.coords.longitude
+        }&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no"></iframe>`
     let req = new XMLHttpRequest();
     req.open("GET", `http://api.openweathermap.org/data/2.5/weather?lat=${
         position.coords.latitude
@@ -21,12 +23,24 @@ function success(position) {
     req.send(null);
     req.addEventListener("load", e => {
     console.log(req.response);
-    document.getElementById("location").textContent = `Your current location is ${req.response.name}, ${position.coords.latitude} latitude and ${position.coords.longitude}
-    longitude.`;
+    document.getElementById("location").textContent = 
+    `Your current location is ${req.response.name}, ${position.coords.latitude} latitude 
+    and ${position.coords.longitude} longitude.`;
+    document.getElementById("weather-data").innerHTML =
+    `<ul>
+        <li>Temperature : ${ (req.response.main.temp - 273).toFixed(2) } &#176;C  </li>
+        <li>Cloud Cover :  ${ req.response.weather[0].description}</li>
+        <li>Wind Speed : ${ req.response.wind.speed} MPH</li>
+        <li>Gusting Up To : ${ req.response.wind.gust} MPH</li>
+        <li>Wind Direction : ${ req.response.wind.deg} degrees</li>
+        <li>Pressure : ${ req.response.main.pressure } mBar </li>
+        <li>Humidity : ${ req.response.main.humidity } %</li>
+    </ul>`;
+
 }   
 )
 }
 
 function failure() {
-    console.log("sorry, you didn't want to share")
+    alert("sorry, you didn't want to share")
 }

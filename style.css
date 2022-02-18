@@ -8,4 +8,9 @@ main {
 
 .map {
     display: block;
+    width: 90%;
+}
+
+ul {
+    list-style: none;
 }
