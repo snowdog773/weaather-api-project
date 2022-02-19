@@ -23,24 +23,29 @@ function success(position) {
     req.send(null);
     req.addEventListener("load", e => {
     console.log(req.response);
-    document.getElementById("location").textContent = 
+    document.getElementById("location").innerHTML = 
     `Your current location is ${position.coords.latitude} latitude 
-    and ${position.coords.longitude} longitude. Your nearest weather station is ${req.response.name},`;
-    document.getElementById("weather-data").innerHTML =
-    `<ul>
+    and ${position.coords.longitude} longitude. Your nearest weather station is ${req.response.name}`;
+    
+    document.getElementById("weatherData").innerHTML =
+    ` <ul>
         <li>Temperature : ${ (req.response.main.temp - 273).toFixed(2) } &#176;C  </li>
         <li>Cloud Cover :  ${ req.response.weather[0].description}</li>
         <li>Wind Speed : ${ req.response.wind.speed} MPH</li>
         <li>Gusting Up To : ${ req.response.wind.gust} MPH</li>
         <li>Wind Direction : ${ req.response.wind.deg} degrees</li>
         <li>Pressure : ${ req.response.main.pressure } mBar </li>
-        <li>Humidity : ${ req.response.main.humidity } %</li>
-    </ul>`;
+        <li>Humidity : ${ req.response.main.humidity } % </li>
+    </ul> `;
 
 }   
 )
 }
 
 function failure() {
-    alert("sorry, you didn't want to share")
+    document.getElementById("location").innerHTML = `<img src="tinfoil.jpg" alt="tin foil hat" />
+    <span>Turn on location data to continue. The government really 
+        aren't that interested in what you are up to<input type="text" name="" id=""></span>
+
+</div>`;
 }
