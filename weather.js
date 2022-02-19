@@ -45,7 +45,7 @@ function success(position) {
 function failure() {
     document.getElementById("location").innerHTML = `<img src="tinfoil.jpg" alt="tin foil hat" />
     <span>Turn on location data to continue. The government really 
-        aren't that interested in what you are up to<input type="text" name="" id=""></span>
+        aren't that interested in what you are up to</span>
 
 </div>`;
 }
