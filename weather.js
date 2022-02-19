@@ -13,7 +13,7 @@ function success(position) {
         position.coords.latitude},${position.coords.longitude
         }&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no"></iframe>`
     let req = new XMLHttpRequest();
-    req.open("GET", `http://api.openweathermap.org/data/2.5/weather?lat=${
+    req.open("GET", `https://api.openweathermap.org/data/2.5/weather?lat=${
         position.coords.latitude
     }&lon=${
         position.coords.longitude
@@ -24,8 +24,8 @@ function success(position) {
     req.addEventListener("load", e => {
     console.log(req.response);
     document.getElementById("location").textContent = 
-    `Your current location is ${req.response.name}, ${position.coords.latitude} latitude 
-    and ${position.coords.longitude} longitude.`;
+    `Your current location is ${position.coords.latitude} latitude 
+    and ${position.coords.longitude} longitude. Your nearest weather station is ${req.response.name},`;
     document.getElementById("weather-data").innerHTML =
     `<ul>
         <li>Temperature : ${ (req.response.main.temp - 273).toFixed(2) } &#176;C  </li>
