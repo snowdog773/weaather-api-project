@@ -1,10 +1,12 @@
-header {
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     text-align: center;
+    background: #ddd;
+}
+h1 {
+    font-weight:300;
 }
 
-main {
-    text-align: center;
-}
 
 .map {
     display: block;
@@ -16,6 +18,7 @@ main {
 iframe {
     width: 75%;
     height: 50vh;
+    box-shadow: 0 0 25px 5px #444;
 }
 
 ul {
@@ -25,6 +28,9 @@ ul {
 li {
     display: inline-block;
     padding: 10px 20px;
+}
+#location {
+margin: 20px;
 }
 
 #location img {
