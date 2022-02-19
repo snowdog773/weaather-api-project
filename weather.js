@@ -23,9 +23,9 @@ function success(position) {
     req.send(null);
     req.addEventListener("load", e => {
     console.log(req.response);
-    document.getElementById("location").innerHTML = 
-    `Your current location is ${position.coords.latitude} latitude 
-    and ${position.coords.longitude} longitude. Your nearest weather station is ${req.response.name}`;
+    document.getElementById("long").textContent = `Current longitude : ${position.coords.longitude}`;
+    document.getElementById("lat").textContent = `Current latitude  : ${position.coords.latitude}`;
+    document.getElementById("location").textContent = `Closest Weather Station : ${req.response.name}`;
     
     document.getElementById("weatherData").innerHTML =
     ` <ul>
