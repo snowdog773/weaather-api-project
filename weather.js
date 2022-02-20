@@ -30,7 +30,7 @@ function success(position) {
     document.getElementById("weatherData").innerHTML =
     ` <ul>
         <li>Temperature : ${ (req.response.main.temp - 273).toFixed(2) } &#176;C  </li>
-        <li>Cloud Cover :  ${ req.response.weather[0].description}</li>
+        <li>Current Conditions :  ${ req.response.weather[0].description}</li>
         <li>Wind Speed : ${ req.response.wind.speed} MPH</li>
         <li>Gusting Up To : ${ req.response.wind.gust} MPH</li>
         <li>Wind Direction : ${ req.response.wind.deg} degrees</li>

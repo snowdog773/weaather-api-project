@@ -17,6 +17,7 @@ h1 {
     color: #fff;
     margin: 0 0 10px 0;
     padding: 20px;
+    text-align: center;
 }
 
 
@@ -29,7 +30,7 @@ h1 {
 
 main span {
     display: block;
-    padding: 5px;
+    padding: 0 20px 15px;
 }
 
 iframe {
@@ -47,8 +48,8 @@ ul {
 }
 
 li {
-    display: inline-block;
-    padding: 10px 20px;
+    display: block;
+    padding: 0 20px 15px;
 }
 
 #location img {
@@ -58,12 +59,15 @@ li {
 }
 
 footer {
-    background: linear-gradient(155deg, #000 0%, #444 100%);
+    background: #222;
+    opacity: 0.9;
     width: 100%;
     color: #fff;
     text-align: right;
     font-size: 0.6em;
     margin: 0;
+    position: fixed;
+    bottom: 0;
 }
 
 footer p {
@@ -71,3 +75,54 @@ footer p {
     margin: 0;
 }
 
+@media (min-width: 800px) {
+
+body {
+    text-align: left;
+    min-height: 100vh;
+}
+
+main #wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 50px 80px;
+    /* grid-template-rows: 1fr 1fr; */
+}
+
+main #map {
+    grid-row: span 2;
+    justify-content: center;
+    align-self: center;
+}
+
+/* main #long-lat-wrapper {
+border-style: solid;
+border-width: 1px;
+border-color: #000;
+border-radius: 10px;
+margin-bottom: 10px;
+}
+
+main #weatherData {
+    border-style: solid;
+    border-width: 1px;
+    border-color: #000;
+    border-radius: 10px;
+} */
+li { 
+    display: block;
+    text-align: left;
+
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    text-align: right;
+}
+
+    iframe {
+        width: 100%;
+        min-height: 60vh;
+    }
+}
